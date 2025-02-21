@@ -1,6 +1,19 @@
 #include <stdio.h>
 #include <string.h>
 
+void cabecalho(){
+	printf("**************************\n");
+	printf("*	JOGO DA FORCA	*\n");
+	printf("**************************\n\n");
+}
+void chuta(char c[26], int t){
+	//captura um nove chute
+	char chute;
+	scanf(" %c",&chute);//O espaço na frente do % indica que vai ser dado o enter e que o sistema não precisar ler este.
+		
+	c[t] = chute;
+}
+
 int main(){
 	char palavrasecreta[20];
 	
@@ -12,12 +25,15 @@ int main(){
 	char chutes[26];
 	int tentativas = 0;
 	
+	cabecalho();
 	
 	do{
+		//imprime a palavra secreta
 		for (int i =0; i<strlen(palavrasecreta);i++){
 			
 			int achou=0;
 			
+			//a letra que foi chutada?
 			for (int j=0;j<tentativas;j++){
 				if(chutes[j] == palavrasecreta[i]){
 					achou=1;
@@ -32,11 +48,8 @@ int main(){
 		}
 		printf("\n");
 		
-		char chute;
-		scanf(" %c",&chute);//O espaço na frente do % indica que vai ser dado o enter e que o sistema não precisar ler este.
-		
-		chutes[tentativas] = chute;
-		tentativas ++;
+		chuta(chutes, tentativas);
+		tentativas++;
 		
 	}while(!acertou && !enforcou);
 	
