@@ -5,13 +5,14 @@ void cabecalho(){
 	printf("**************************\n");
 	printf("*	JOGO DA FORCA	*\n");
 	printf("**************************\n\n");
-}
-void chuta(char c[26], int t){
+}//* ponteiro na variavel t.
+void chuta(char c[26], int*t){
 	//captura um nove chute
 	char chute;
 	scanf(" %c",&chute);//O espaço na frente do % indica que vai ser dado o enter e que o sistema não precisar ler este.
 		
-	c[t] = chute;
+	c[(*t)] = chute;
+	(*t)++;//Somar no valor que está dentro deste endereço do ponteiro.
 }
 
 int main(){
@@ -48,9 +49,6 @@ int main(){
 		}
 		printf("\n");
 		
-		chuta(chutes, tentativas);
-		tentativas++;
-		
-	}while(!acertou && !enforcou);
-	
+		chuta(chutes, &tentativas);		
+	}while(!acertou && !enforcou);	
 }
