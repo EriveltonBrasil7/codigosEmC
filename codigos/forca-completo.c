@@ -168,6 +168,7 @@ int main(){
 	
 	if(acertou())	{
 			// Nova imagem de troféu e mensagem "Ganhou"
+		printf("\n");
 		printf("Voce e o VENCEDOR!\n");
     	printf("      _____\n");
     	printf("     /     \\ \n");
